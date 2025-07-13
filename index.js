@@ -1,11 +1,24 @@
-const { Person } = require('./PersonModel');
+const { Person ,  createPerson} = require('./PersonModel');
+const {people} = require('./people');
 
-const person1 = new Person('Ihsan', 2000, 170, 55, 80);
-console.log(person1);
-person1.getAge();
-console.log(person1.energy);
-person1.walk(20);
-person1.walk(20);
-person1.sleep(8);
-person1.eat(5);
-person1.walk(10);
+people.push(new Person('anianigemink', 2077, 174, 56, 80));
+
+console.log(people[0].name);
+for(let i = 0; i < people.length; i++) {
+    const person = people[i];
+    if (person.name === 'Ihsan') {
+        continue;
+    }
+    if (person.name === 'anianigemink') {
+        break;
+    }
+    console.log(`Name: ${person.name} is present.`);
+}
+
+people.push(createPerson({
+    name: 'Siti',
+    birthYear: 2000,
+    height: 160,
+    weight: 50,
+    energy: 80
+}))
